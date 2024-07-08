@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revelación Especial - Angy, Juanje y Erika</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.26.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'baby-blue': '#89CFF0',
+                        'baby-pink': '#F4C2C2',
+                    },
+                    fontFamily: {
+                        'oooh-baby': ['"Oooh Baby"', 'cursive'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gender-button:checked+label {
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-r from-baby-blue to-baby-pink min-h-screen flex items-center justify-center p-4 font-poppins">
+    <main class="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800 font-oooh-baby">
+            Angy, Juanje y Erika quieren compartir algo contigo...
+        </h1>
+        <p class="text-center mb-8 text-gray-600 text-l">
+            ¡Bienvenido/a a nuestra revelación especial!
+        </p>
+        <form id="userForm" class="space-y-6">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Tu nombre</label>
+                <input type="text" id="name" name="name" required placeholder="Escribe tu nombre"
+                    class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-baby-blue focus:border-transparent transition duration-200"
+                    aria-describedby="name-description">
+                <p id="name-description" class="mt-1 text-xs text-gray-500">Este nombre se usará para recordar tu
+                    elección.</p>
+            </div>
+            <div>
+                <fieldset>
+                    <legend class="block text-sm font-medium text-gray-700 mb-1">¿Qué quieres que sea?</legend>
+                    <div class="flex justify-center space-x-4">
+                        <div>
+                            <input type="radio" id="wish-girl" name="wish" value="niña" class="gender-button hidden"
+                                required>
+                            <label for="wish-girl"
+                                class="flex flex-col items-center cursor-pointer p-2 border-2 border-transparent rounded-lg">
+                                <img src="img/baby_girl.png" alt="Niña" class="w-16 h-16">
+                                <span class="mt-1 text-sm">Niña</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" id="wish-boy" name="wish" value="niño" class="gender-button hidden"
+                                required>
+                            <label for="wish-boy"
+                                class="flex flex-col items-center cursor-pointer p-2 border-2 border-transparent rounded-lg">
+                                <img src="img/baby_boy.png" alt="Niño" class="w-16 h-16">
+                                <span class="mt-1 text-sm">Niño</span>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset>
+                    <legend class="block text-sm font-medium text-gray-700 mb-1">¿Qué crees que es?</legend>
+                    <div class="flex justify-center space-x-4">
+                        <div>
+                            <input type="radio" id="guess-girl" name="guess" value="niña" class="gender-button hidden"
+                                required>
+                            <label for="guess-girl"
+                                class="flex flex-col items-center cursor-pointer p-2 border-2 border-transparent rounded-lg">
+                                <img src="img/baby_girl.png" alt="Niña" class="w-16 h-16">
+                                <span class="mt-1 text-sm">Niña</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" id="guess-boy" name="guess" value="niño" class="gender-button hidden"
+                                required>
+                            <label for="guess-boy"
+                                class="flex flex-col items-center cursor-pointer p-2 border-2 border-transparent rounded-lg">
+                                <img src="img/baby_boy.png" alt="Niño" class="w-16 h-16">
+                                <span class="mt-1 text-sm">Niño</span>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit"
+                class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-gradient-to-r from-baby-blue to-baby-pink hover:from-baby-pink hover:to-baby-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-baby-blue transition duration-300 ease-in-out uppercase">
+                ¡Vamos a jugar!
+            </button>
+        </form>
+    </main>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

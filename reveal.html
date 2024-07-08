@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Revelación del Bebé!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.26.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'baby-blue': '#89CFF0',
+                        'baby-pink': '#F4C2C2',
+                    },
+                    fontFamily: {
+                        'oooh-baby': ['"Oooh Baby"', 'cursive'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'fade-in': 'fadeIn 2s ease-out',
+                        'slide-up': 'slideUp 1s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #animation-container {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-r from-baby-blue to-baby-pink min-h-screen flex items-center justify-center p-4 font-poppins">
+    <main class="text-center">
+        <h1 class="text-4xl sm:text-6xl font-bold mb-8 text-white animate-bounce-slow font-poppins"
+            aria-label="Es un niño">
+            ¡Es un
+            <span class="text-blue-900 animate-fade-in" style="animation-delay: 1s;">niño</span>!
+        </h1>
+        <div id="animation-container" class="relative w-64 h-64 sm:w-96 sm:h-96 rounded-full shadow-lg mb-8">
+            <!-- El confeti y la imagen del bebé se generarán aquí -->
+        </div>
+        <p class="mt-8 text-xl text-blue-500 font-semibold animate-slide-up font-poppins" style="animation-delay: 2s;">
+            ¡Felicidades a la familia y amigos!</p>
+        <button id="stats-btn"
+            class="mt-6 px-6 py-2 bg-white text-blue-500 rounded-full shadow-lg hover:bg-blue-100 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 animate-slide-up uppercase"
+            style="animation-delay: 2.5s;">
+            Ver estadísticas
+        </button>
+    </main>
+
+    <div id="stats-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-md w-full mx-4">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800 font-oooh-baby">Estadísticas</h2>
+            <div id="stats-content" class="mb-6 text-gray-600">
+                <!-- Las estadísticas se cargarán aquí -->
+            </div>
+            <button id="close-stats-btn"
+                class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-gradient-to-r from-baby-blue to-baby-pink hover:from-baby-pink hover:to-baby-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-baby-blue transition duration-300 ease-in-out uppercase">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="js/reveal.js"></script>
+</body>
+
+</html>

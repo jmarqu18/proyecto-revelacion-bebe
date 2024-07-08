@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria - Revelación del Bebé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.26.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'baby-blue': '#89CFF0',
+                        'baby-pink': '#F4C2C2',
+                    },
+                    fontFamily: {
+                        'oooh-baby': ['"Oooh Baby"', 'cursive'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-r from-baby-blue to-baby-pink min-h-screen flex items-center justify-center p-4 font-poppins">
+    <main class="bg-white p-6 sm:p-8 rounded-lg shadow-lg max-w-2xl w-full">
+        <h1 class="text-3xl font-bold text-center mb-4 text-gray-800 font-oooh-baby">Juego de Memoria</h1>
+        <p class="text-center mb-6 text-gray-600 text-l">Encuentra todas las parejas para revelar el
+            sexo del bebé</p>
+        <div id="game-board" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
+            <!-- Las tarjetas se generarán aquí dinámicamente -->
+        </div>
+        <div id="stats" class="flex justify-between text-sm text-gray-600 mb-4">
+            <span id="time" class="bg-baby-blue px-3 py-1 rounded-full">Tiempo: 0s</span>
+            <span id="attempts" class="bg-baby-pink px-3 py-1 rounded-full">Intentos: 0</span>
+        </div>
+    </main>
+
+    <div id="modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full mx-4">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800 font-oooh-baby">¡Felicidades!</h2>
+            <p class="mb-6 text-gray-600">Has completado el juego de memoria</p>
+            <button id="reveal-btn"
+                class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-gradient-to-r from-baby-blue to-baby-pink hover:from-baby-pink hover:to-baby-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-baby-blue transition duration-300 ease-in-out uppercase">
+                Revelar el sexo del bebé
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="js/game.js"></script>
+</body>
+
+</html>
